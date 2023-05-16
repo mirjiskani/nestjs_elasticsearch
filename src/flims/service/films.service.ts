@@ -20,8 +20,6 @@ export class FilmsService {
         return "Update Flims";
     }
     findAllFlims():Promise<films[]>{
-        return this.filmRepository.createQueryBuilder('films')
-        .leftJoinAndSelect('rating.*', 'rating.filmid = films.id')
-        .getMany();
+        return this.filmRepository.find();
     }
 }
