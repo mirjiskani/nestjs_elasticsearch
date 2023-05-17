@@ -30,6 +30,30 @@
 
 ```bash
 $ npm install
+
+```
+## Database Detail
+
+```bash
+
+Put database credentials in  DB/data-soruce.ts file
+{
+  type: 'mysql',
+  host: 'localhost',
+  port: 3306,
+  username: '',
+  password: '',
+  database: '',
+  entities: ['dist/**/*.entity{.ts,.js}'],
+  migrations: ['dist/db/migrations/*{.ts,.js}'],
+  synchronize: false
+};
+
+```
+## Run migration
+
+```bash
+$npm run migration:run
 ```
 
 ## Running the app
