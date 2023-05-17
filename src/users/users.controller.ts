@@ -1,5 +1,5 @@
 import { Controller,Post,Put,Get,Delete, Body, ValidationPipe, UsePipes } from '@nestjs/common';
-import { UsersService } from './service/users.service';
+import { UsersService } from './users.service';
 import {users} from '../../db/entity/users.entity'
 
 @Controller('users')
@@ -20,15 +20,19 @@ export class UsersController {
     }
 
     @Put('/update')
-    updateUser():String{
+    updateUser(@Body(new ValidationPipe()) usersData:users):Promise<users>{
         // This function is use to update user
-        return this.usersService.updateUsers();
+        return this.usersService.updateUsers(usersData);
     }
 
     @Delete('/delete')
     deleteUser(){
         //This function is used to delete user from database
         return this.usersService.deleteUser();
+    }
+    @Post('/login')
+    loginUser(@Body() userData):Promise<users>{
+        return this.usersService.userLogin(userData)
     }
 }
 

@@ -1,5 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { rating } from './rating.entity';
 
 @Entity()
 export class films {
@@ -21,4 +22,7 @@ export class films {
   @IsNotEmpty()
   @Column({ default: Date.now() })
   release_date: string;
+
+  @OneToMany(() => rating, rating => rating.film)
+  filmRatings: rating[];
 }

@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UsersController } from './users.controller';
-import { UsersService } from './service/users.service';
+import { UsersService } from './users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { users } from 'db/entity/users.entity';
+import { UsersController } from './users.controller';
+import { Repository } from 'typeorm';
 
 @Module({
   imports:[TypeOrmModule.forFeature([users])],
@@ -10,7 +11,5 @@ import { users } from 'db/entity/users.entity';
   providers: [UsersService]
 })
 export class UsersModule {
-    constructor(){
-        console.log("users Module");
-    }
+    constructor(){}
 }

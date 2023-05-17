@@ -8,6 +8,7 @@ export class User1684235942574 implements MigrationInterface {
           id INT PRIMARY KEY AUTO_INCREMENT,
           LastName VARCHAR(255) NOT NULL,
           FirstName VARCHAR(255) NOT NULL,
+          password VARCHAR(255) NOT NULL,
           email VARCHAR(255) NOT NULL,
           isActive boolean DEFAULT true,
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,

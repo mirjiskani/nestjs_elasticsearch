@@ -1,8 +1,10 @@
 import { IsNotEmpty,IsEmail } from 'class-validator';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { rating } from './rating.entity';
 
 @Entity()
 export class users {
+  [x: string]: any;
   @PrimaryGeneratedColumn()
   id: number;
    
@@ -13,6 +15,10 @@ export class users {
   @IsNotEmpty()
   @Column()
   lastName: string;
+
+  @IsNotEmpty()
+  @Column()
+  password: string;
  
   @IsNotEmpty()
   @IsEmail()
@@ -21,4 +27,7 @@ export class users {
  
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(() => rating, rating => rating.u)
+  userRatings: rating[];
 }
