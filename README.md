@@ -56,6 +56,12 @@ Put database credentials in  DB/data-soruce.ts file
 $npm run migration:run
 ```
 
+## SQL file
+
+```bash
+If in case of migration get failed get the sql file from the DBdump directory
+```
+
 ## Running the app
 
 ```bash
@@ -80,6 +86,12 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+## Access Api using POST Man or your favourite tool
+
+```bash
+# file is attached in the root directory with name postman
+
 ```
 
 ## Support
