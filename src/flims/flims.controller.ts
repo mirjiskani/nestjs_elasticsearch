@@ -11,26 +11,27 @@ export class FlimsController {
     
     
     @Post('/add')
-    //@UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     addFilm(@Body(new ValidationPipe()) films:films):Promise<films>{
         // add films to database
         return this.filmsService.addFlims(films);
     }
 
     @Get('/findAll')
+    @UseGuards(AuthGuard)
     findFilms():Promise<films[]>{
         return this.filmsService.findAllFlims();
     }
     
     @Put('/update')
-  //  @UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     updateFilms(@Body(new ValidationPipe()) filmsData:films):Promise<films>{
+        // this function is used for to update the films
         return this.filmsService.updateFlims(filmsData)
     }
 
     @Delete('/delete')
-    
-   // @UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     deleteFilms():String{
         return this.filmsService.deleteFlims();
     }

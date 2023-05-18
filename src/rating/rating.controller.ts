@@ -8,7 +8,7 @@ export class RatingController {
     constructor(private ratingService:ServiceRating){}
 
     @Post('add')
-    //@UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     addRating(@Body(new ValidationPipe()) ratingData:rating):Promise<rating>{
         return this.ratingService.addRating(ratingData);
     }
