@@ -62,6 +62,18 @@ $npm run migration:run
 If in case of migration get failed get the sql file from the DBdump directory
 ```
 
+## Elastic Search
+```
+Elastic Search is implemented in the app your matchine should have elastic search 
+https://www.elastic.co/downloads/elasticsearch
+
+  ElasticsearchModule.register({
+      node: 'http://localhost:9200',
+      requestTimeout: 3000 // Elasticsearch server URL
+    }),
+
+Your elastic search server matchine should be register
+```
 ## Running the app
 
 ```bash
