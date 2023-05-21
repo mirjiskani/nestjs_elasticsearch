@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import dataSource from 'db/data-source';
 import { films } from 'db/entity/films.entity';
+import { EsearchService } from 'src/elasticsearch/esearch.service';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -9,9 +9,12 @@ export class FilmsService {
     constructor(
         @InjectRepository(films)
         private readonly filmRepository: Repository<films>,
+        private EsearchService:EsearchService
       ) {}
     async addFlims(filmsData: Partial<films>): Promise<films> {
         const newUser = this.filmRepository.create(filmsData);
+        const doc = await this.EsearchService.addDocument(newUser.id,newUser)
+        console.log(doc,'Document');
         return this.filmRepository.save(newUser);
     }
     async updateFlims(filmsData):Promise<films> {

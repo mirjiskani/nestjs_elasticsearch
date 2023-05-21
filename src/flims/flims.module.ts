@@ -8,10 +8,12 @@ import { UsersModule } from 'src/users/users.module';
 @Module({
   imports:[
     TypeOrmModule.forFeature([films]),
-    UsersModule
+    UsersModule,
   ],
   controllers: [FlimsController],
-  providers: [FilmsService]
+  providers: [FilmsService],
+  exports:[FilmsService]
+
 })
 export class FlimsModule {
     constructor(){}
