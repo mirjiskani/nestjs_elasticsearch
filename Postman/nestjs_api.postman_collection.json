@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "19922240-6625-4a35-80e4-bdce515a28d1",
+		"_postman_id": "b4a025c4-cabc-46e0-80f4-5a16add311df",
 		"name": "nestjs_api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -160,10 +160,21 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "email",
+						"value": "mirkhan@khan.com",
+						"type": "default"
+					},
+					{
+						"key": "password",
+						"value": "Mirkhan1",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Test Film 6\",\r\n    \"description\":\"This is the test description for test film4\",\r\n    \"price\":\"3266.2\",\r\n    \"release_date\":\"2023-05-23\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Mir Khan 6\",\r\n    \"description\":\"This is the test description for test film4\",\r\n    \"price\":\"3266.2\",\r\n    \"release_date\":\"2023-05-23\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -231,6 +242,32 @@
 					]
 				},
 				"description": "Login User API"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/esearch/search?keyword='term'",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/esearch/search?keyword='khan'",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"esearch",
+						"search"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "'khan'"
+						}
+					]
+				},
+				"description": "Search film"
 			},
 			"response": []
 		}
