@@ -4,7 +4,6 @@ import { EsearchService } from './esearch.service';
 import { ElasticsearchModule, ElasticsearchService } from '@nestjs/elasticsearch';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { films } from 'db/entity/films.entity';
-import esearch from 'elastic_config/esconfig';
 
 @Global()
 @Module({
