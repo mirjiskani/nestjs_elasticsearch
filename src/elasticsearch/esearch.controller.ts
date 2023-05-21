@@ -8,7 +8,7 @@ export class EsearchController {
 
   @Get('search')
   async search(@Query() query) {
-    const results = await this.elasticsearchService.search('name',query.keyword);
+    const results = await this.elasticsearchService.search('movies',query.keyword);
     return results;
   }
 }

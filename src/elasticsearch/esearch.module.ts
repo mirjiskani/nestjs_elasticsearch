@@ -22,11 +22,11 @@ import { films } from 'db/entity/films.entity';
 export class EsearchModule implements OnModuleInit  {
   constructor(private readonly elasticsearchService: ElasticsearchService){}
   public async onModuleInit() {
-    const index = await this.elasticsearchService.indices.create({ index: 'movies' });
-    const chkIndex = await this.elasticsearchService.indices.exists(index);
+    const indexName ='movies';
+    const chkIndex = await this.elasticsearchService.indices.exists({ index: indexName });
     if(!chkIndex){
       try{
-        const index = await this.elasticsearchService.indices.create({ index: 'movies' });
+        const index = await this.elasticsearchService.indices.create({ index: indexName });
       }catch(err){
         console.log(err);
       }
